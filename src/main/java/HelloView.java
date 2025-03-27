@@ -73,11 +73,13 @@ public class HelloView extends Application {
         btnJP.setOnAction(e -> onJPclick());
         btnIR.setOnAction(e -> onIRclick());
 
+        Label nametag = new Label("27.3.2025 Tommi Halla");
+
         hbox.getChildren().addAll(btnEN, btnFR, btnJP, btnIR);
-        vbox.getChildren().addAll(lblDistance, txtDistance, lblFuel, txtFuel, btnCalculate, lblResult, hbox);
+        vbox.getChildren().addAll(lblDistance, txtDistance, lblFuel, txtFuel, btnCalculate, lblResult, hbox, nametag);
         vbox.setPadding(insets);
 
-        Scene scene = new Scene(vbox, 300, 300);
+        Scene scene = new Scene(vbox, 350, 280);
         primaryStage.setScene(scene);
         primaryStage.show();
 
