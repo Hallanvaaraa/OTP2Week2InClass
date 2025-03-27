@@ -33,8 +33,7 @@ public class HelloView extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-
-        primaryStage.setTitle("Fuel Calculator");
+        primaryStage.setTitle("Fuel Consumption Calculator");
         VBox vbox = new VBox(10);
 
         Insets insets = new Insets(10, 10, 10, 10);
@@ -61,7 +60,7 @@ public class HelloView extends Application {
             }
         });
 
-        hC.updateUI(locale, lblDistance, lblFuel, btnCalculate, lblResult);
+        hC.updateUI(lblDistance, lblFuel, btnCalculate, lblResult);
 
         HBox hbox = new HBox(10);
         btnEN = new Button("EN");
@@ -69,10 +68,10 @@ public class HelloView extends Application {
         btnJP = new Button("JP");
         btnIR = new Button("IR");
 
-        btnEN.setOnAction(e -> hC.updateUI(new Locale("en", "US"), lblDistance, lblFuel, btnCalculate, lblResult));
-        btnFR.setOnAction(e -> hC.updateUI(new Locale("fr", "FR"), lblDistance, lblFuel, btnCalculate, lblResult));
-        btnJP.setOnAction(e -> hC.updateUI(new Locale("ja", "JP"), lblDistance, lblFuel, btnCalculate, lblResult));
-        btnIR.setOnAction(e -> hC.updateUI(new Locale("fa", "IR"), lblDistance, lblFuel, btnCalculate, lblResult));
+        btnEN.setOnAction(e -> onENclick());
+        btnFR.setOnAction(e -> onFRclick());
+        btnJP.setOnAction(e -> onJPclick());
+        btnIR.setOnAction(e -> onIRclick());
 
         hbox.getChildren().addAll(btnEN, btnFR, btnJP, btnIR);
         vbox.getChildren().addAll(lblDistance, txtDistance, lblFuel, txtFuel, btnCalculate, lblResult, hbox);
@@ -87,6 +86,30 @@ public class HelloView extends Application {
     public void initialize() {
         hC.setLanguage(locale);
         rb = ResourceBundle.getBundle("messages", locale);
+    }
+
+    public void onENclick() {
+        locale = new Locale("en", "US");
+        hC.setLanguage(locale);
+        hC.updateUI(lblDistance, lblFuel, btnCalculate, lblResult);
+    }
+
+    public void onFRclick() {
+        locale = new Locale("fr", "FR");
+        hC.setLanguage(locale);
+        hC.updateUI(lblDistance, lblFuel, btnCalculate, lblResult);
+    }
+
+    public void onJPclick() {
+        locale = new Locale("ja", "JP");
+        hC.setLanguage(locale);
+        hC.updateUI(lblDistance, lblFuel, btnCalculate, lblResult);
+    }
+
+    public void onIRclick() {
+        locale = new Locale("fa", "IR");
+        hC.setLanguage(locale);
+        hC.updateUI(lblDistance, lblFuel, btnCalculate, lblResult);
     }
 
     public static void main(String[] args) {

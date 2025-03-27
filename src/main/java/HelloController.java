@@ -12,10 +12,9 @@ public class HelloController {
         this.locale = locale;
     }
 
-    public void updateUI(Locale newLocale, Label lblDistance, Label lblFuel, Button btnCalculate, Label lblResult) {
+    public void updateUI(Label lblDistance, Label lblFuel, Button btnCalculate, Label lblResult) {
         lblResult.setText("");
         ResourceBundle rb;
-        locale = newLocale;
         try {
             rb = ResourceBundle.getBundle("messages", locale);
             lblDistance.setText(rb.getString("distance.label"));
